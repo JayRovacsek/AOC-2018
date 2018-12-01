@@ -1,5 +1,15 @@
 #!/usr/bin/env python3
+
 import os
+import unittest
+
+class TestMethods(unittest.TestCase):
+
+    def test_frequency_find(self):
+        with open("test.txt",mode="r") as f:
+            numbers = generate_number_list(f)
+
+        self.assertEqual(10,frequency_process(numbers,0,True,{}))
 
 def frequency_process(numbers,frequency,find_duplicate,r):
     for line in numbers:
@@ -22,8 +32,5 @@ def generate_number_list(f):
     return l
 
 if __name__ == '__main__':
-    with open("input.txt",mode="r") as f:
-        numbers = generate_number_list(f)
 
-    print("Solution to part 1: {}".format(frequency_process(numbers,0,False,{})))
-    print("Solution to part 2: {}".format(frequency_process(numbers,0,True,{})))
+    unittest.main()
