@@ -10,6 +10,8 @@ class TestMethods(unittest.TestCase):
             numbers = generate_number_list(f)
 
         self.assertEqual(10,frequency_process(numbers,0,True,{}))
+        self.assertNotEqual(0,frequency_process(numbers,0,True,{}))
+        self.assertNotEqual(None,frequency_process(numbers,0,True,{}))
 
 def frequency_process(numbers,frequency,find_duplicate,r):
     for line in numbers:
