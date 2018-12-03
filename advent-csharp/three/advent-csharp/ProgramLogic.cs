@@ -38,7 +38,6 @@ namespace advent_csharp
 
         public int GetMaxY(IEnumerable<Claim> claims)
         {
-            var max = claims.Max(x => x.Y + x.Height);
             return claims.Max(x => x.Y + x.Height);
         }
 
@@ -49,7 +48,6 @@ namespace advent_csharp
                 for(int i = claim.X; i < claim.X+claim.Width; i++)
                     for (int j = claim.Y; j < claim.Y + claim.Height; j++)
                         matrix[i,j]++;
-
             return matrix;
         }
 
@@ -60,7 +58,6 @@ namespace advent_csharp
                 for (int j = 0; j < matrix.GetLength(1); j++)
                     if(matrix[i,j] >= 2)
                         count++;
-
             return count;
         }
 
