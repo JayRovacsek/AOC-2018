@@ -69,16 +69,12 @@ namespace advent_csharp
             var c = claims.ToList();
 
             foreach(var claim in claims)
-            {
                 for(int i=0; i < c.Count(); i++)
-                {
                     if (Intersects(claim, c[i]) && claim.Id != c[i].Id)
                     {
                         claim.IntersectAnotherClaim = true;
                         break;
                     }
-                }
-            }
 
             return claims.Select(x => x).Where(x => x.IntersectAnotherClaim == false).Select(x => x.Id).FirstOrDefault();
         }
@@ -86,14 +82,10 @@ namespace advent_csharp
         private bool Intersects(Claim claim, Claim challenger)
         {
             for(int i = claim.X;i<= claim.X + claim.Width; i++)
-            {
                 for (int j = claim.Y; j <= claim.Y + claim.Height; j++)
-                {
                     if (i > challenger.X && i < challenger.X + challenger.Width)
                         if (j > challenger.Y && j < challenger.Y + challenger.Height)
                             return true;
-                }
-            }
             return false;
         }
     }
