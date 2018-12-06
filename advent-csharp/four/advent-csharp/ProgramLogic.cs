@@ -47,7 +47,7 @@ namespace advent_csharp
 
         public int CalculateTimeAsleep(int id, List<Log> logs)
         {
-            var asleepTime = logs.Select(x => x).Where(x => x.GuardId == id && x.Asleep == true).Sum(y => y.EndDate.Subtract(y.StartDate).TotalMinutes);
+            var asleepTime = logs.Select(x => x).Where(x => x.GuardId == id && x.Asleep == true).Sum(x => x.EndDate.Subtract(x.StartDate).TotalMinutes);
 
             return Convert.ToInt32(asleepTime);
         }
